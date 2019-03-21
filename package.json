@@ -25,6 +25,7 @@
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.4.0",
     "@babel/preset-env": "^7.4.1",
+    "eslint": "^5.15.3",
     "mocha": "^6.0.2",
     "uglify-js": "^3.5.0"
   }
