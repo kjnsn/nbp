@@ -2,7 +2,21 @@ var assert = require('assert'),
     NBP = require('../build/nbp.js'),
     fs = require('fs');
 
-NBP.testInit();
+    const nbp = new NBP();
+
+
+function testInit(wordlist = 'mostcommon_100000') {
+    let fs = require('fs')
+
+    let wordlistSplit = wordlist.split('_')
+    let wordlistLength = wordlistSplit[wordlistSplit.length - 1]
+    let bloomContent = fs.readFileSync(`collections/${wordlist}`, 'utf8')
+
+    nbp.testInit(bloomContent, wordlistLength)
+}
+
+
+testInit();
 
 var wordlist = fs.readFileSync('build_collection/top100000', 'utf8'),
     processed_wordlist = wordlist.split('\n');
@@ -10,7 +24,7 @@ var wordlist = fs.readFileSync('build_collection/top100000', 'utf8'),
 describe('NBP.isCommonPassword', function() {
     it('should always return true for list mostcommon_100000', function() { this.timeout(0);
         for (var i = processed_wordlist.length - 1; i >= 0; i--) {
-            assert.equal(NBP.isCommonPassword(processed_wordlist[i]), true);
+            assert.equal(nbp.isCommonPassword(processed_wordlist[i]), true);
         };
     });
 
@@ -23,7 +37,7 @@ describe('NBP.isCommonPassword', function() {
 
         for (var i = iterations; i >= 0; i--) {
             var gen = uuid(),
-                res = NBP.isCommonPassword(gen);
+                res = nbp.isCommonPassword(gen);
 
             if (res) {
                 false_count++;

@@ -9,7 +9,8 @@
   },
   "scripts": {
     "test": "mocha",
-    "build": "babel nbp_es6.js --out-file build/nbp.js"
+    "build": "babel src/nbp.js --out-file build/nbp.js",
+    "lint": "eslint src/"
   },
   "repository": {
     "type": "git",
@@ -25,8 +26,19 @@
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.4.0",
     "@babel/preset-env": "^7.4.1",
+    "babel-loader": "^8.0.5",
     "eslint": "^5.15.3",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
     "mocha": "^6.0.2",
-    "uglify-js": "^3.5.0"
+    "uglify-js": "^3.5.0",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  },
+  "dependencies": {
+    "lz-string": "^1.4.4"
   }
 }
