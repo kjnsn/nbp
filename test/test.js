@@ -1,5 +1,5 @@
 var assert = require('assert'),
-    NBP = require('../build/nbp.min.js'),
+    NBP = require('../build/nbp.js'),
     fs = require('fs');
 
 NBP.testInit();
